@@ -1,22 +1,21 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import { motion } from 'framer-motion';
 import { Send, Mic } from 'lucide-react';
+import { generateChat } from '@/lib/gemini';
 
 type Message = {
   role: 'user' | 'model';
-  parts: { text: string }[];
+  content: string;
 };
 
 export default function AIChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,29 +23,23 @@ export default function AIChatPage() {
 
     const userMessage = input.trim();
     setInput('');
-    setMessages(prev => [...prev, { role: 'user', parts: [{ text: userMessage }] }]);
+    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
     setLoading(true);
 
     try {
-      const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
-      const chat = model.startChat({ history: messages });
-      const result = await chat.sendMessage(userMessage);
-      const response = await result.response;
-      const text = response.text();
+      const response = await generateChat([
+        ...messages,
+        { role: 'user', content: userMessage }
+      ]);
 
-      setMessages(prev => [...prev, { role: 'model', parts: [{ text }] }]);
+      setMessages(prev => [...prev, { role: 'model', content: response }]);
     } catch (error) {
       console.error('Error generating response:', error);
-      setMessages(prev => [...prev, { role: 'model', parts: [{ text: 'Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin.' }] }]);
+      setMessages(prev => [...prev, { role: 'model', content: 'Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin.' }]);
     } finally {
       setLoading(false);
     }
   };
-
-  // Auto-scroll to the latest message
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -73,7 +66,12 @@ export default function AIChatPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
-          className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 chat-container"
+          className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 chat-container transition-all duration-300"
+          style={{ 
+            maxWidth: isExpanded ? '90%' : '48rem',
+            margin: isExpanded ? '0 auto' : '0 auto'
+          }}
+          onClick={() => setIsExpanded(!isExpanded)}
         >
           <div className="h-[calc(100vh-280px)] overflow-y-auto mb-6 pr-2 custom-scrollbar">
             {messages.map((message, index) => (
@@ -91,7 +89,7 @@ export default function AIChatPage() {
                       : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-bl-none'
                   }`}
                 >
-                  {message.parts[0].text}
+                  {message.content}
                 </motion.div>
               </div>
             ))}
