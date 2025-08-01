@@ -79,69 +79,6 @@ export default function TaktiQHomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-emerald-50/30">
-      {/* Navigation */}
-      <div className="border-b bg-white sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-8">
-              <Link href="/" passHref legacyBehavior>
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
-                    <BarChart3 className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="font-bold text-xl text-gray-900">TaktiQ</span>
-                </div>
-              </Link>
-
-              <nav className="hidden md:flex items-center space-x-6">
-                <Link href="#" passHref legacyBehavior>
-                  <a className="text-gray-600 hover:text-emerald-600 transition-colors">
-                    Takım Karşılaştırma
-                  </a>
-                </Link>
-                <Link href="#" passHref legacyBehavior>
-                  <a className="text-gray-600 hover:text-emerald-600 transition-colors">
-                    Oyuncu Karşılaştırma
-                  </a>
-                </Link>
-                <Link href="#" passHref legacyBehavior>
-                  <a className="text-gray-600 hover:text-emerald-600 transition-colors">
-                    TaktiQ AI
-                  </a>
-                </Link>
-                <Link href="#" passHref legacyBehavior>
-                  <a className="text-gray-600 hover:text-emerald-600 transition-colors">
-                    Takım Analizi
-                  </a>
-                </Link>
-                <Link href="#" passHref legacyBehavior>
-                  <a className="text-gray-600 hover:text-emerald-600 transition-colors">
-                    İstatistikler
-                  </a>
-                </Link>
-                <Link href="#" passHref legacyBehavior>
-                  <a className="text-gray-600 hover:text-emerald-600 transition-colors">
-                    Hakkında
-                  </a>
-                </Link>
-              </nav>
-            </div>
-
-            <div className="flex items-center space-x-3">
-              <Link href="/login" passHref legacyBehavior>
-                <Button variant="ghost" className="text-gray-600 hover:text-emerald-600">
-                  Giriş Yap
-                </Button>
-              </Link>
-              <Badge className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white">Beta</Badge>
-              <Button variant="ghost" size="icon" className="hover:bg-slate-100" onClick={() => alert('Tema değiştirme özelliği yakında!')}>
-                <Moon className="h-5 w-5" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto text-center max-w-4xl">
@@ -178,10 +115,10 @@ export default function TaktiQHomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-blue-500 text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg"
+                className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 px-8 py-3 text-lg"
               >
-                <TrendingUp className="w-5 h-5 mr-2" />
-                Takım Kıyasla
+                <BarChart3 className="w-5 h-5 mr-2" />
+                Takım Karşılaştır
               </Button>
             </Link>
           </div>
