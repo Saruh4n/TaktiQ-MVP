@@ -23,12 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Link href="/" className="mr-6 flex items-center space-x-2">
                   <span className="text-xl font-bold text-primary dark:text-primary">TaktiQ</span>
                 </Link>
-                <nav className="flex-1 items-center space-x-4 md:space-x-6">
-                  <Link href="/players" className="nav-link">Oyuncular</Link>
-                  <Link href="/compare" className="nav-link">Karşılaştır</Link>
-                  <Link href="/teams" className="nav-link">Takımlar</Link>
-                  <Link href="/ai-chat" className="nav-link">AI Chat</Link>
-                </nav>
                 <div className="flex items-center space-x-4">
                   {/* <button className="btn-secondary">Giriş Yap</button> */}
                 </div>
