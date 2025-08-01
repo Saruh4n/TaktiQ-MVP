@@ -536,3 +536,58 @@
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Chart Styles */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.dark .chart-container {
+  background-color: #1f2937;
+}
+
+.chart-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.dark .chart-title {
+  color: #e5e7eb;
+}
+
+.chart-legend {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.dark .chart-legend {
+  color: #9ca3af;
+}
+
+/* Responsive Chart Styles */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 250px;
+    padding: 0.5rem;
+  }
+  
+  .chart-title {
+    font-size: 1rem;
+  }
+  
+  .chart-legend {
+    font-size: 0.75rem;
+  }
+}
