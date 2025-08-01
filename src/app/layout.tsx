@@ -2,7 +2,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { ToastProvider } from '@/components/ToastProvider';
 import Link from 'next/link';
 
@@ -31,7 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link href="/ai-chat" className="nav-link">AI Chat</Link>
                 </nav>
                 <div className="flex items-center space-x-4">
-                  <ThemeToggle />
                   {/* <button className="btn-secondary">Giriş Yap</button> */}
                 </div>
               </div>
