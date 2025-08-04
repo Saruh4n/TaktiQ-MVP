@@ -21,20 +21,46 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function TeamAnalysisPage() {
+  const [analysisType, setAnalysisType] = useState<'single' | 'dual'>('single')
   const [team1, setTeam1] = useState('')
   const [team2, setTeam2] = useState('')
   const [showComparison, setShowComparison] = useState(false)
 
   const handleCompare = () => {
-    if (team1 && team2) {
+    if (analysisType === 'single' && team1) {
+      setShowComparison(true)
+    } else if (analysisType === 'dual' && team1 && team2) {
       setShowComparison(true)
     } else {
-      alert('Lütfen iki takım da seçin!')
+      alert(analysisType === 'single' ? 'Lütfen takım adını girin!' : 'Lütfen iki takım adını da girin!')
     }
   }
 
   const handleAnalysisClick = (type: 'stats' | 'success') => {
-    alert(`${team1} vs ${team2} - ${type === 'stats' ? 'Detaylı İstatistikler' : 'Başarı Analizi'} başlatılıyor...`)
+    if (analysisType === 'single') {
+      alert(`${team1} - ${type === 'stats' ? 'Detaylı İstatistikler' : 'Başarı Analizi'} analizi başlatılıyor...`)
+    } else {
+      alert(`${team1} vs ${team2} - ${type === 'stats' ? 'Detaylı İstatistikler' : 'Başarı Analizi'} karşılaştırması başlatılıyor...`)
+    }
+  }
+
+  // Reset analysis when form changes
+  const handleTeam1Change = (value: string) => {
+    setTeam1(value)
+    setShowComparison(false)
+  }
+
+  const handleTeam2Change = (value: string) => {
+    setTeam2(value)
+    setShowComparison(false)
+  }
+
+  const handleAnalysisTypeChange = (type: 'single' | 'dual') => {
+    setAnalysisType(type)
+    setShowComparison(false)
+    if (type === 'single') {
+      setTeam2('')
+    }
   }
 
   return (
@@ -80,10 +106,36 @@ export default function TeamAnalysisPage() {
             </p>
           </div>
 
-          {/* Team Comparison Section */}
+          {/* Analysis Type Toggle */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Hangi takımları karşılaştırmak istersiniz?</h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Analiz Türünü Seçin</h2>
+            <div className="flex justify-center mb-6">
+              <div className="bg-gray-100 rounded-lg p-1">
+                <button
+                  onClick={() => handleAnalysisTypeChange('single')}
+                  className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                    analysisType === 'single'
+                      ? 'bg-white text-gray-900 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  Tek Takım
+                </button>
+                <button
+                  onClick={() => handleAnalysisTypeChange('dual')}
+                  className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                    analysisType === 'dual'
+                      ? 'bg-white text-gray-900 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  İki Takım
+                </button>
+              </div>
+            </div>
+
+            {/* Team Input Section */}
+            <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">1. Takım</label>
                 <div className="relative">
@@ -92,7 +144,7 @@ export default function TeamAnalysisPage() {
                     type="text"
                     placeholder="Takım adını girin (örn: Manchester City)"
                     value={team1}
-                    onChange={(e) => setTeam1(e.target.value)}
+                    onChange={(e) => handleTeam1Change(e.target.value)}
                     className="pl-10"
                   />
                   {team1 && (
@@ -100,33 +152,37 @@ export default function TeamAnalysisPage() {
                   )}
                 </div>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">2. Takım</label>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    type="text"
-                    placeholder="Takım adını girin (örn: Arsenal)"
-                    value={team2}
-                    onChange={(e) => setTeam2(e.target.value)}
-                    className="pl-10"
-                  />
-                  {team2 && (
-                    <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
-                  )}
+
+              {analysisType === 'dual' && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">2. Takım</label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <Input
+                      type="text"
+                      placeholder="Takım adını girin (örn: Arsenal)"
+                      value={team2}
+                      onChange={(e) => handleTeam2Change(e.target.value)}
+                      className="pl-10"
+                    />
+                    {team2 && (
+                      <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
+
             <Button
               onClick={handleCompare}
-              className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-3"
+              className="mt-6 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-3"
             >
               <TrendingUp className="w-5 h-5 mr-2" />
-              Takımları Karşılaştır
+              {analysisType === 'single' ? 'Takımı Analiz Et' : 'Takımları Karşılaştır'}
             </Button>
           </div>
 
-          {/* Features Preview - Now Clickable */}
+          {/* Analysis Options - Now Clickable */}
           {showComparison && (
             <div className="grid md:grid-cols-2 gap-6 mb-12">
               <Card 
