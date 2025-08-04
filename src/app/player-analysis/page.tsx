@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
 import {
   Construction,
   Wrench,
@@ -15,10 +16,36 @@ import {
   User,
   TrendingUp,
   Activity,
+  Search,
+  Check,
 } from "lucide-react"
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function PlayerAnalysisPage() {
+  const [analysisType, setAnalysisType] = useState<'single' | 'dual'>('single')
+  const [player1, setPlayer1] = useState('')
+  const [player2, setPlayer2] = useState('')
+  const [showAnalysis, setShowAnalysis] = useState(false)
+
+  const handleAnalyze = () => {
+    if (analysisType === 'single' && player1) {
+      setShowAnalysis(true)
+    } else if (analysisType === 'dual' && player1 && player2) {
+      setShowAnalysis(true)
+    } else {
+      alert(analysisType === 'single' ? 'Lütfen oyuncu adını girin!' : 'Lütfen iki oyuncu adını da girin!')
+    }
+  }
+
+  const handleAnalysisClick = (type: 'performance' | 'development') => {
+    if (analysisType === 'single') {
+      alert(`${player1} - ${type === 'performance' ? 'Bireysel Performans' : 'Gelişim Takibi'} analizi başlatılıyor...`)
+    } else {
+      alert(`${player1} vs ${player2} - ${type === 'performance' ? 'Bireysel Performans' : 'Gelişim Takibi'} karşılaştırması başlatılıyor...`)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-emerald-50/30">
       {/* Header */}
@@ -62,32 +89,116 @@ export default function PlayerAnalysisPage() {
             </p>
           </div>
 
-          {/* Features Preview */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <Card className="bg-white/80 backdrop-blur-sm">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <User className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle>Bireysel Performans</CardTitle>
-                <CardDescription>
-                  Oyuncuların detaylı performans analizini inceleyin
-                </CardDescription>
-              </CardHeader>
-            </Card>
+          {/* Analysis Type Toggle */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Analiz Türünü Seçin</h2>
+            <div className="flex justify-center mb-6">
+              <div className="bg-gray-100 rounded-lg p-1">
+                <button
+                  onClick={() => setAnalysisType('single')}
+                  className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                    analysisType === 'single'
+                      ? 'bg-white text-gray-900 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  Tek Oyuncu
+                </button>
+                <button
+                  onClick={() => setAnalysisType('dual')}
+                  className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                    analysisType === 'dual'
+                      ? 'bg-white text-gray-900 shadow-sm'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                >
+                  İki Oyuncu
+                </button>
+              </div>
+            </div>
 
-            <Card className="bg-white/80 backdrop-blur-sm">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-6 h-6 text-white" />
+            {/* Player Input Section */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">1. Oyuncu</label>
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Input
+                    type="text"
+                    placeholder="Oyuncu adını girin (örn: Erling Haaland)"
+                    value={player1}
+                    onChange={(e) => setPlayer1(e.target.value)}
+                    className="pl-10"
+                  />
+                  {player1 && (
+                    <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                  )}
                 </div>
-                <CardTitle>Gelişim Takibi</CardTitle>
-                <CardDescription>
-                  Oyuncuların zaman içindeki gelişimini takip edin
-                </CardDescription>
-              </CardHeader>
-            </Card>
+              </div>
+
+              {analysisType === 'dual' && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">2. Oyuncu</label>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <Input
+                      type="text"
+                      placeholder="Oyuncu adını girin (örn: Kylian Mbappé)"
+                      value={player2}
+                      onChange={(e) => setPlayer2(e.target.value)}
+                      className="pl-10"
+                    />
+                    {player2 && (
+                      <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <Button
+              onClick={handleAnalyze}
+              className="mt-6 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-3"
+            >
+              <User className="w-5 h-5 mr-2" />
+              {analysisType === 'single' ? 'Oyuncuyu Analiz Et' : 'Oyuncuları Karşılaştır'}
+            </Button>
           </div>
+
+          {/* Analysis Options - Now Clickable */}
+          {showAnalysis && (
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <Card 
+                className="bg-white/80 backdrop-blur-sm cursor-pointer hover:shadow-lg transition-all duration-300"
+                onClick={() => handleAnalysisClick('performance')}
+              >
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <User className="w-6 h-6 text-white" />
+                  </div>
+                  <CardTitle>Bireysel Performans</CardTitle>
+                  <CardDescription>
+                    Oyuncuların detaylı performans analizini inceleyin
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+
+              <Card 
+                className="bg-white/80 backdrop-blur-sm cursor-pointer hover:shadow-lg transition-all duration-300"
+                onClick={() => handleAnalysisClick('development')}
+              >
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <CardTitle>Gelişim Takibi</CardTitle>
+                  <CardDescription>
+                    Oyuncuların zaman içindeki gelişimini takip edin
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </div>
+          )}
 
           {/* Coming Soon Features */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-8">
