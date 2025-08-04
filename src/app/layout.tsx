@@ -31,6 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     <Link href="/team-analysis" className="text-sm font-medium text-gray-600 hover:text-green-600 transition-colors">
                       Takım Analizi
                     </Link>
+                    <Link href="/player-analysis" className="text-sm font-medium text-gray-600 hover:text-green-600 transition-colors">
+                      Oyuncu Analizi
+                    </Link>
                   </div>
                 </Link>
                 <div className="flex items-center space-x-4">

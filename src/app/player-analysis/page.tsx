@@ -12,10 +12,13 @@ import {
   Trophy,
   Users,
   Target,
+  User,
+  TrendingUp,
+  Activity,
 } from "lucide-react"
 import Link from 'next/link'
 
-export default function TeamAnalysisPage() {
+export default function PlayerAnalysisPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-emerald-50/30">
       {/* Header */}
@@ -52,7 +55,7 @@ export default function TeamAnalysisPage() {
               <Construction className="w-12 h-12 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Takım Analizi
+              Oyuncu Analizi
             </h1>
             <p className="text-xl text-gray-600 mb-8">
               Bu özellik şu anda geliştirme aşamasında. Yakında sizlerle olacak!
@@ -64,11 +67,11 @@ export default function TeamAnalysisPage() {
             <Card className="bg-white/80 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="w-6 h-6 text-white" />
+                  <User className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle>Detaylı İstatistikler</CardTitle>
+                <CardTitle>Bireysel Performans</CardTitle>
                 <CardDescription>
-                  Takım performansını derinlemesine analiz edin
+                  Oyuncuların detaylı performans analizini inceleyin
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -76,11 +79,11 @@ export default function TeamAnalysisPage() {
             <Card className="bg-white/80 backdrop-blur-sm">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Trophy className="w-6 h-6 text-white" />
+                  <TrendingUp className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle>Başarı Analizi</CardTitle>
+                <CardTitle>Gelişim Takibi</CardTitle>
                 <CardDescription>
-                  Takımın başarı faktörlerini keşfedin
+                  Oyuncuların zaman içindeki gelişimini takip edin
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -91,8 +94,8 @@ export default function TeamAnalysisPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Yakında Gelecek Özellikler</h2>
             <div className="grid md:grid-cols-2 gap-4 text-left">
               <div className="flex items-center space-x-3">
-                <Clock className="w-5 h-5 text-orange-500" />
-                <span className="text-gray-700">Gerçek zamanlı takım analizi</span>
+                <Activity className="w-5 h-5 text-orange-500" />
+                <span className="text-gray-700">Gerçek zamanlı oyuncu istatistikleri</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Target className="w-5 h-5 text-orange-500" />
@@ -100,7 +103,7 @@ export default function TeamAnalysisPage() {
               </div>
               <div className="flex items-center space-x-3">
                 <BarChart3 className="w-5 h-5 text-orange-500" />
-                <span className="text-gray-700">Gelişmiş istatistik grafikleri</span>
+                <span className="text-gray-700">Gelişmiş performans grafikleri</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Wrench className="w-5 h-5 text-orange-500" />
