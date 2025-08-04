@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { ToastProvider } from '@/components/ToastProvider';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import Link from 'next/link';
 import { Trophy, BarChart3 } from 'lucide-react';
 
@@ -25,9 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
                     <Trophy className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-xl font-bold text-primary dark:text-primary">TaktiQ</span>
+                  <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">TaktiQ</span>
                 </Link>
                 <div className="flex items-center space-x-4">
+                  <ThemeToggle />
                   {/* <button className="btn-secondary">Giriş Yap</button> */}
                 </div>
               </div>
