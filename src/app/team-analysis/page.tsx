@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
 import {
   Construction,
   Wrench,
@@ -12,10 +13,25 @@ import {
   Trophy,
   Users,
   Target,
+  Search,
+  Compare,
 } from "lucide-react"
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function TeamAnalysisPage() {
+  const [team1, setTeam1] = useState('')
+  const [team2, setTeam2] = useState('')
+
+  const handleCompare = () => {
+    if (team1 && team2) {
+      // Burada karşılaştırma işlemi yapılacak
+      alert(`${team1} vs ${team2} karşılaştırması başlatılıyor...`)
+    } else {
+      alert('Lütfen iki takım da seçin!')
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-emerald-50/30">
       {/* Header */}
@@ -57,6 +73,46 @@ export default function TeamAnalysisPage() {
             <p className="text-xl text-gray-600 mb-8">
               Bu özellik şu anda geliştirme aşamasında. Yakında sizlerle olacak!
             </p>
+          </div>
+
+          {/* Team Comparison Section */}
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Hangi takımları karşılaştırmak istersiniz?</h2>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">1. Takım</label>
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Input
+                    type="text"
+                    placeholder="Takım adını girin (örn: Manchester City)"
+                    value={team1}
+                    onChange={(e) => setTeam1(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">2. Takım</label>
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Input
+                    type="text"
+                    placeholder="Takım adını girin (örn: Arsenal)"
+                    value={team2}
+                    onChange={(e) => setTeam2(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+              </div>
+            </div>
+            <Button
+              onClick={handleCompare}
+              className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-3"
+            >
+              <Compare className="w-5 h-5 mr-2" />
+              Takımları Karşılaştır
+            </Button>
           </div>
 
           {/* Features Preview */}
