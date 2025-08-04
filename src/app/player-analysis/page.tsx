@@ -46,6 +46,25 @@ export default function PlayerAnalysisPage() {
     }
   }
 
+  // Reset analysis when form changes
+  const handlePlayer1Change = (value: string) => {
+    setPlayer1(value)
+    setShowAnalysis(false)
+  }
+
+  const handlePlayer2Change = (value: string) => {
+    setPlayer2(value)
+    setShowAnalysis(false)
+  }
+
+  const handleAnalysisTypeChange = (type: 'single' | 'dual') => {
+    setAnalysisType(type)
+    setShowAnalysis(false)
+    if (type === 'single') {
+      setPlayer2('')
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-emerald-50/30">
       {/* Header */}
@@ -95,7 +114,7 @@ export default function PlayerAnalysisPage() {
             <div className="flex justify-center mb-6">
               <div className="bg-gray-100 rounded-lg p-1">
                 <button
-                  onClick={() => setAnalysisType('single')}
+                  onClick={() => handleAnalysisTypeChange('single')}
                   className={`px-6 py-2 rounded-md font-medium transition-colors ${
                     analysisType === 'single'
                       ? 'bg-white text-gray-900 shadow-sm'
@@ -105,7 +124,7 @@ export default function PlayerAnalysisPage() {
                   Tek Oyuncu
                 </button>
                 <button
-                  onClick={() => setAnalysisType('dual')}
+                  onClick={() => handleAnalysisTypeChange('dual')}
                   className={`px-6 py-2 rounded-md font-medium transition-colors ${
                     analysisType === 'dual'
                       ? 'bg-white text-gray-900 shadow-sm'
@@ -127,7 +146,7 @@ export default function PlayerAnalysisPage() {
                     type="text"
                     placeholder="Oyuncu adını girin (örn: Erling Haaland)"
                     value={player1}
-                    onChange={(e) => setPlayer1(e.target.value)}
+                    onChange={(e) => handlePlayer1Change(e.target.value)}
                     className="pl-10"
                   />
                   {player1 && (
@@ -145,7 +164,7 @@ export default function PlayerAnalysisPage() {
                       type="text"
                       placeholder="Oyuncu adını girin (örn: Kylian Mbappé)"
                       value={player2}
-                      onChange={(e) => setPlayer2(e.target.value)}
+                      onChange={(e) => handlePlayer2Change(e.target.value)}
                       className="pl-10"
                     />
                     {player2 && (
