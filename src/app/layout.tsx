@@ -43,6 +43,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   </div>
                 </Link>
                 <div className="flex items-center space-x-4">
+                  <Link href="/register">
+                    <button className="px-3 py-1 rounded text-sm font-medium text-white bg-green-600 hover:bg-green-700 transition-colors">Üye Ol</button>
+                  </Link>
+                  <Link href="/login">
+                    <button className="px-3 py-1 rounded text-sm font-medium text-green-600 border border-green-600 hover:bg-green-50 transition-colors">Giriş Yap</button>
+                  </Link>
                   <ThemeToggle />
                   {/* <button className="btn-secondary">Giriş Yap</button> */}
                 </div>

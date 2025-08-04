@@ -33,7 +33,7 @@ export default function BreakingNewsPage() {
                 <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
                   <BarChart3 className="h-5 w-5 text-white" />
                 </div>
-                <span className="font-bold text-xl text-gray-900">TaktiQ</span>
+                <span className="font-bold text-xl text-gray-900">Son Dakika</span>
               </Link>
               <Badge variant="secondary" className="bg-orange-50 text-orange-700 border-orange-200">
                 <Construction className="w-4 h-4 mr-2" />
