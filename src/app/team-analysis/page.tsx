@@ -18,13 +18,23 @@ import {
   Check,
 } from "lucide-react"
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 export default function TeamAnalysisPage() {
+  const searchParams = useSearchParams()
   const [analysisType, setAnalysisType] = useState<'single' | 'dual'>('single')
   const [team1, setTeam1] = useState('')
   const [team2, setTeam2] = useState('')
   const [showComparison, setShowComparison] = useState(false)
+
+  // Check URL parameter on component mount
+  useEffect(() => {
+    const mode = searchParams.get('mode')
+    if (mode === 'dual') {
+      setAnalysisType('dual')
+    }
+  }, [searchParams])
 
   const handleCompare = () => {
     if (analysisType === 'single' && team1) {

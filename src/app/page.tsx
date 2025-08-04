@@ -111,7 +111,7 @@ export default function TaktiQHomePage() {
                 AI Analiz Başlat
               </Button>
             </Link>
-            <Link href="/team-comparison" passHref legacyBehavior>
+            <Link href="/team-analysis?mode=dual" passHref legacyBehavior>
               <Button
                 size="lg"
                 variant="outline"
