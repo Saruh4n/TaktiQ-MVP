@@ -14,7 +14,8 @@ import {
   Users,
   Target,
   Search,
-  Compare,
+  TrendingUp,
+  Check,
 } from "lucide-react"
 import Link from 'next/link'
 import { useState } from 'react'
@@ -22,14 +23,18 @@ import { useState } from 'react'
 export default function TeamAnalysisPage() {
   const [team1, setTeam1] = useState('')
   const [team2, setTeam2] = useState('')
+  const [showComparison, setShowComparison] = useState(false)
 
   const handleCompare = () => {
     if (team1 && team2) {
-      // Burada karşılaştırma işlemi yapılacak
-      alert(`${team1} vs ${team2} karşılaştırması başlatılıyor...`)
+      setShowComparison(true)
     } else {
       alert('Lütfen iki takım da seçin!')
     }
+  }
+
+  const handleAnalysisClick = (type: 'stats' | 'success') => {
+    alert(`${team1} vs ${team2} - ${type === 'stats' ? 'Detaylı İstatistikler' : 'Başarı Analizi'} başlatılıyor...`)
   }
 
   return (
@@ -90,6 +95,9 @@ export default function TeamAnalysisPage() {
                     onChange={(e) => setTeam1(e.target.value)}
                     className="pl-10"
                   />
+                  {team1 && (
+                    <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                  )}
                 </div>
               </div>
               <div>
@@ -103,6 +111,9 @@ export default function TeamAnalysisPage() {
                     onChange={(e) => setTeam2(e.target.value)}
                     className="pl-10"
                   />
+                  {team2 && (
+                    <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                  )}
                 </div>
               </div>
             </div>
@@ -110,37 +121,45 @@ export default function TeamAnalysisPage() {
               onClick={handleCompare}
               className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-8 py-3"
             >
-              <Compare className="w-5 h-5 mr-2" />
+              <TrendingUp className="w-5 h-5 mr-2" />
               Takımları Karşılaştır
             </Button>
           </div>
 
-          {/* Features Preview */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <Card className="bg-white/80 backdrop-blur-sm">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle>Detaylı İstatistikler</CardTitle>
-                <CardDescription>
-                  Takım performansını derinlemesine analiz edin
-                </CardDescription>
-              </CardHeader>
-            </Card>
+          {/* Features Preview - Now Clickable */}
+          {showComparison && (
+            <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <Card 
+                className="bg-white/80 backdrop-blur-sm cursor-pointer hover:shadow-lg transition-all duration-300"
+                onClick={() => handleAnalysisClick('stats')}
+              >
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <BarChart3 className="w-6 h-6 text-white" />
+                  </div>
+                  <CardTitle>Detaylı İstatistikler</CardTitle>
+                  <CardDescription>
+                    Takım performansını derinlemesine analiz edin
+                  </CardDescription>
+                </CardHeader>
+              </Card>
 
-            <Card className="bg-white/80 backdrop-blur-sm">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Trophy className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle>Başarı Analizi</CardTitle>
-                <CardDescription>
-                  Takımın başarı faktörlerini keşfedin
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
+              <Card 
+                className="bg-white/80 backdrop-blur-sm cursor-pointer hover:shadow-lg transition-all duration-300"
+                onClick={() => handleAnalysisClick('success')}
+              >
+                <CardHeader>
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <Trophy className="w-6 h-6 text-white" />
+                  </div>
+                  <CardTitle>Başarı Analizi</CardTitle>
+                  <CardDescription>
+                    Takımın başarı faktörlerini keşfedin
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            </div>
+          )}
 
           {/* Coming Soon Features */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 mb-8">
