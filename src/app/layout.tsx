@@ -26,7 +26,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <div className="w-8 h-8 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
                     <Trophy className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">TaktiQ</span>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">TaktiQ</span>
+                    <Link href="/team-analysis" className="text-sm font-medium text-gray-600 hover:text-green-600 transition-colors">
+                      Takım Analizi
+                    </Link>
+                  </div>
                 </Link>
                 <div className="flex items-center space-x-4">
                   <ThemeToggle />
