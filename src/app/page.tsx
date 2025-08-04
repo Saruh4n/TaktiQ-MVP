@@ -122,6 +122,18 @@ export default function TaktiQHomePage() {
               </Button>
             </Link>
           </div>
+          
+          <div className="flex justify-center mt-4">
+            <Link href="/transfer-simulation" passHref legacyBehavior>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-8 py-3 text-lg"
+              >
+                <Users className="w-5 h-5 mr-2" />
+                Sanal Transfer Simülasyonu
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -18,10 +18,10 @@ import {
   Check,
 } from "lucide-react"
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
-export default function TeamAnalysisPage() {
+function TeamAnalysisContent() {
   const searchParams = useSearchParams()
   const [analysisType, setAnalysisType] = useState<'single' | 'dual'>('single')
   const [team1, setTeam1] = useState('')
@@ -274,5 +274,13 @@ export default function TeamAnalysisPage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function TeamAnalysisPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TeamAnalysisContent />
+    </Suspense>
   )
 } 
