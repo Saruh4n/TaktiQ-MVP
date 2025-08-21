@@ -25,33 +25,46 @@ import Link from 'next/link'
 
 export default function TransferSimulationPage() {
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* 3D Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900 via-black to-pink-900 opacity-50"></div>
-        <div className="absolute top-20 left-10 w-32 h-32 bg-purple-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-pink-500 rounded-full blur-2xl opacity-30 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse delay-2000"></div>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-green-900 text-white relative overflow-hidden">
+      {/* 3D Football Pitch Effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Saha çizgileri ve blur efektler */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-gray-900 to-green-900 opacity-80"></div>
+        <div className="absolute top-24 left-1/4 w-1/2 h-32 bg-green-600/30 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+        <div className="absolute bottom-10 right-1/4 w-1/3 h-24 bg-green-400/30 rounded-full blur-2xl opacity-30 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-0 w-full h-1 bg-green-700/40 rounded-full blur-sm opacity-60"></div>
+        <div className="absolute top-1/3 left-0 w-full h-1 bg-green-800/30 rounded-full blur-sm opacity-40"></div>
+        <div className="absolute bottom-1/3 left-0 w-full h-1 bg-green-800/30 rounded-full blur-sm opacity-40"></div>
+        {/* Mavi blur efekt */}
+        <div className="absolute top-1/4 right-1/5 w-1/3 h-32 bg-blue-600/30 rounded-full blur-2xl opacity-30 animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/4 left-1/5 w-1/4 h-20 bg-blue-400/30 rounded-full blur-2xl opacity-20 animate-pulse delay-700"></div>
+        {/* Blurred footballer image */}
+        <img
+          src="https://labosport.com/wp-content/uploads/2023/03/Soccer-1.png"
+          alt="Futbolcu topa vuruyor"
+          className="absolute bottom-0 right-0 w-[500px] max-w-[60vw] opacity-40 blur-2xl select-none pointer-events-none"
+          style={{ zIndex: 1 }}
+        />
       </div>
 
       {/* Header */}
-      <div className="border-b border-gray-800 bg-black/80 backdrop-blur-sm sticky top-0 z-50">
+      <div className="border-b border-green-900 bg-black/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
               <Link href="/" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center transform hover:scale-110 transition-transform">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-700 to-green-500 rounded-lg flex items-center justify-center transform hover:scale-110 transition-transform">
                   <Users className="h-5 w-5 text-white" />
                 </div>
                 <span className="font-bold text-xl text-white">Sanal Transfer Simülasyonu</span>
               </Link>
-              <Badge variant="secondary" className="bg-orange-500/20 text-orange-300 border-orange-500/30">
+              <Badge variant="secondary" className="bg-green-900/30 text-green-300 border-green-700/30">
                 <Construction className="w-4 h-4 mr-2" />
                 Yapım Aşamasında
               </Badge>
             </div>
             <Link href="/">
-              <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">
+              <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-green-900/60">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Geri Dön
               </Button>
@@ -64,21 +77,21 @@ export default function TransferSimulationPage() {
       <section className="py-20 px-4 relative z-10">
         <div className="container mx-auto text-center max-w-6xl">
           <div className="mb-12">
-            <div className="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-8 transform hover:scale-110 transition-transform duration-500">
+            <div className="w-32 h-32 bg-gradient-to-r from-green-700 to-green-500 rounded-full flex items-center justify-center mx-auto mb-8 transform hover:scale-110 transition-transform duration-500 shadow-lg shadow-green-900/40">
               <Construction className="w-16 h-16 text-white" />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              <span className="text-transparent bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text">
+              <span className="text-transparent bg-gradient-to-r from-green-400 to-green-600 bg-clip-text">
                 Sanal Transfer
               </span>
               <br />
-              <span className="text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text">
+              <span className="text-transparent bg-gradient-to-r from-green-600 to-green-400 bg-clip-text">
                 Simülasyonu
               </span>
             </h1>
-            <p className="text-xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto">
-              Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
-              Futbolun geleceği burada başlıyor.
+            <p className="text-xl text-green-100 mb-10 leading-relaxed max-w-3xl mx-auto">
+              Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.<br />
+              Halı saha atmosferinde futbolun geleceği burada başlıyor.
             </p>
           </div>
 
@@ -87,16 +100,16 @@ export default function TransferSimulationPage() {
             {/* 3D Player Card 1 */}
             <div className="group perspective-1000">
               <div className="relative transform transition-all duration-500 group-hover:rotate-y-12">
-                <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/30 shadow-2xl hover:shadow-purple-500/50 transition-all duration-500">
-                  <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform">
+                <div className="bg-gradient-to-br from-green-800/40 to-green-600/30 backdrop-blur-sm rounded-2xl p-8 border border-green-700/40 shadow-2xl hover:shadow-green-500/40 transition-all duration-500">
+                  <div className="w-20 h-20 bg-gradient-to-r from-green-700 to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform">
                     <DollarSign className="w-10 h-10 text-white" />
                   </div>
                   <CardTitle className="text-2xl font-bold text-white mb-4">Transfer Değeri Analizi</CardTitle>
-                  <CardDescription className="text-gray-300 text-lg">
+                  <CardDescription className="text-green-100 text-lg">
                     Oyuncuların gerçekçi transfer değerlerini 3D ortamda hesaplayın
                   </CardDescription>
                   <div className="mt-6 flex justify-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center transform group-hover:scale-125 transition-transform">
+                    <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-700 rounded-full flex items-center justify-center transform group-hover:scale-125 transition-transform">
                       <Star className="w-8 h-8 text-white" />
                     </div>
                   </div>
@@ -104,19 +117,19 @@ export default function TransferSimulationPage() {
               </div>
             </div>
 
-            {/* 3D Player Card 2 */}
+            {/* 3D Player Card 2 (Blue Themed) */}
             <div className="group perspective-1000">
               <div className="relative transform transition-all duration-500 group-hover:rotate-y-12">
-                <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/30 shadow-2xl hover:shadow-blue-500/50 transition-all duration-500">
-                  <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform">
+                <div className="bg-gradient-to-br from-blue-900/40 to-blue-700/30 backdrop-blur-sm rounded-2xl p-8 border border-blue-700/40 shadow-2xl hover:shadow-blue-500/40 transition-all duration-500">
+                  <div className="w-20 h-20 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform">
                     <Building className="w-10 h-10 text-white" />
                   </div>
                   <CardTitle className="text-2xl font-bold text-white mb-4">Takım Uyumluluğu</CardTitle>
-                  <CardDescription className="text-gray-300 text-lg">
+                  <CardDescription className="text-blue-100 text-lg">
                     Oyuncuların takıma uyumunu 3D simülasyonda test edin
                   </CardDescription>
                   <div className="mt-6 flex justify-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center transform group-hover:scale-125 transition-transform">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full flex items-center justify-center transform group-hover:scale-125 transition-transform">
                       <Zap className="w-8 h-8 text-white" />
                     </div>
                   </div>
@@ -127,17 +140,17 @@ export default function TransferSimulationPage() {
             {/* 3D Player Card 3 */}
             <div className="group perspective-1000 md:col-span-2 lg:col-span-1">
               <div className="relative transform transition-all duration-500 group-hover:rotate-y-12">
-                <div className="bg-gradient-to-br from-pink-600/20 to-red-600/20 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/30 shadow-2xl hover:shadow-pink-500/50 transition-all duration-500">
-                  <div className="w-20 h-20 bg-gradient-to-r from-pink-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform">
-                    <Globe className="w-10 h-10 text-white" />
+                <div className="bg-gradient-to-br from-green-900/40 to-gray-800/30 backdrop-blur-sm rounded-2xl p-8 border border-green-900/40 shadow-2xl hover:shadow-green-500/40 transition-all duration-500">
+                  <div className="w-20 h-20 bg-gradient-to-r from-green-700 to-gray-700 rounded-full flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 transition-transform">
+                    <User className="w-10 h-10 text-white" />
                   </div>
                   <CardTitle className="text-2xl font-bold text-white mb-4">3D Oyuncu Analizi</CardTitle>
-                  <CardDescription className="text-gray-300 text-lg">
+                  <CardDescription className="text-green-100 text-lg">
                     Futbolcuları 3D ortamda detaylı olarak inceleyin
                   </CardDescription>
                   <div className="mt-6 flex justify-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center transform group-hover:scale-125 transition-transform">
-                      <User className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 bg-gradient-to-r from-green-700 to-green-500 rounded-full flex items-center justify-center transform group-hover:scale-125 transition-transform">
+                      <BarChart3 className="w-8 h-8 text-white" />
                     </div>
                   </div>
                 </div>
@@ -146,24 +159,24 @@ export default function TransferSimulationPage() {
           </div>
 
           {/* Coming Soon Features */}
-          <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 backdrop-blur-sm rounded-3xl p-10 mb-12 border border-purple-500/30">
+          <div className="bg-gradient-to-r from-green-900/60 to-blue-900/60 backdrop-blur-sm rounded-3xl p-10 mb-12 border border-green-800/30">
             <h2 className="text-3xl font-bold text-white mb-8">Yakında Gelecek 3D Özellikler</h2>
             <div className="grid md:grid-cols-2 gap-6 text-left">
-              <div className="flex items-center space-x-4 p-4 bg-black/30 rounded-xl border border-purple-500/20">
-                <Globe className="w-6 h-6 text-purple-400" />
-                <span className="text-gray-200">Gerçek zamanlı 3D transfer haberleri</span>
-              </div>
-              <div className="flex items-center space-x-4 p-4 bg-black/30 rounded-xl border border-pink-500/20">
-                <Target className="w-6 h-6 text-pink-400" />
-                <span className="text-gray-200">3D transfer hedefleri belirleme</span>
+              <div className="flex items-center space-x-4 p-4 bg-black/30 rounded-xl border border-green-700/20">
+                <Globe className="w-6 h-6 text-green-400" />
+                <span className="text-green-100">Gerçek zamanlı 3D transfer haberleri</span>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-black/30 rounded-xl border border-blue-500/20">
-                <BarChart3 className="w-6 h-6 text-blue-400" />
-                <span className="text-gray-200">3D transfer istatistikleri</span>
+                <Target className="w-6 h-6 text-blue-300" />
+                <span className="text-blue-100">3D transfer hedefleri belirleme</span>
               </div>
-              <div className="flex items-center space-x-4 p-4 bg-black/30 rounded-xl border border-green-500/20">
+              <div className="flex items-center space-x-4 p-4 bg-black/30 rounded-xl border border-blue-400/20">
+                <BarChart3 className="w-6 h-6 text-blue-200" />
+                <span className="text-blue-100">3D transfer istatistikleri</span>
+              </div>
+              <div className="flex items-center space-x-4 p-4 bg-black/30 rounded-xl border border-green-600/20">
                 <Wrench className="w-6 h-6 text-green-400" />
-                <span className="text-gray-200">3D transfer stratejisi simülasyonu</span>
+                <span className="text-green-100">3D transfer stratejisi simülasyonu</span>
               </div>
             </div>
           </div>
@@ -173,7 +186,7 @@ export default function TransferSimulationPage() {
             <Link href="/">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-10 py-4 text-lg transform hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-green-700 to-green-500 hover:from-green-800 hover:to-green-600 text-white px-10 py-4 text-lg transform hover:scale-105 transition-all duration-300"
               >
                 <ArrowLeft className="w-5 h-5 mr-2" />
                 Ana Sayfaya Dön
@@ -183,7 +196,7 @@ export default function TransferSimulationPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-purple-500 text-purple-300 hover:bg-purple-500/20 px-10 py-4 text-lg transform hover:scale-105 transition-all duration-300"
+                className="border-blue-500 text-blue-300 hover:bg-blue-900/20 px-10 py-4 text-lg transform hover:scale-105 transition-all duration-300"
               >
                 AI Chat'i Dene
               </Button>

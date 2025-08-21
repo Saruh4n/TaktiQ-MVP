@@ -78,30 +78,62 @@ export default function TaktiQHomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-emerald-50/30">
+    <div className="min-h-screen bg-black relative">
       {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto text-center max-w-4xl">
-          <div className="mb-6">
+      <section className="py-20 px-4 relative z-10 bg-black">
+        {/* Video background for this section only */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0 rounded-2xl"
+          src="/vd2.mp4"
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/60 z-10 rounded-2xl pointer-events-none" />
+        <div className="container mx-auto text-center max-w-4xl relative z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="mb-6"
+          >
             <Badge variant="secondary" className="bg-emerald-50 text-emerald-700 border-emerald-200">
               <Brain className="w-4 h-4 mr-2" />
               AI Destekli Futbol Analizi
             </Badge>
-          </div>
-
-          <h1 className="flex items-center justify-center text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex items-center justify-center text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+          >
             <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center mr-4">
               <BarChart3 className="h-5 w-5 text-white" />
             </div>
-            <span className="text-transparent bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text">TaktiQ</span>
-          </h1>
-
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+            <span className="text-transparent bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text">TaktiQ</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-xl text-gray-200 mb-10 leading-relaxed max-w-2xl mx-auto"
+          >
             Yapay zeka ile futbolcu performanslarını analiz edin, takımları kıyaslayın ve stratejik kararlar alın.
             Futbolun geleceği burada başlıyor.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <Link href="/ai-chat" passHref legacyBehavior>
               <Button
                 size="lg"
@@ -121,9 +153,14 @@ export default function TaktiQHomePage() {
                 Takım Karşılaştır
               </Button>
             </Link>
-          </div>
-          
-          <div className="flex justify-center mt-4">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="flex justify-center mt-4"
+          >
             <Link href="/transfer-simulation" passHref legacyBehavior>
               <Button
                 size="lg"
@@ -133,22 +170,22 @@ export default function TaktiQHomePage() {
                 Sanal Transfer Simülasyonu
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Chat Bot Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-blue-50/50 to-emerald-50/50">
+      <section className="py-12 px-4 bg-gradient-to-br from-slate-50 to-emerald-50/50">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">TaktiQ AI ile Sohbet Edin</h2>
-            <p className="text-xl text-gray-600">Futbol hakkında merak ettiklerinizi sorun, anında cevap alın</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">TaktiQ AI ile Sohbet Edin</h2>
+            <p className="text-xl text-black font-medium">Futbol hakkında merak ettiklerinizi sorun, anında cevap alın</p>
           </div>
 
           <motion.div 
-            className={`bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden transition-all duration-500 ease-in-out ${
-              isExpanded ? 'max-w-[90vw] mx-auto scale-125' : ''
-            }`}
+            className={`relative rounded-3xl bg-white/90 shadow-2xl border-0 overflow-hidden transition-all duration-500 ease-in-out px-8 py-8 mt-8
+               before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-1 before:bg-gradient-to-r before:from-emerald-500 before:to-teal-500 before:rounded-t-3xl before:z-20
+               ${isExpanded ? 'max-w-[90vw] mx-auto scale-125' : ''}`}
             onClick={() => setIsExpanded(!isExpanded)}
             style={{ cursor: 'pointer' }}
             whileHover={{ scale: 1.05 }}
@@ -157,20 +194,18 @@ export default function TaktiQHomePage() {
             {/* Chat Header */}
             <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-6">
               <div className="flex items-center space-x-4">
-                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-600 via-black to-green-400 rounded-full flex items-center justify-center shadow-lg">
                   <Brain className="h-8 w-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-white text-xl font-semibold">TaktiQ AI</h3>
-                  <p className="text-white/80 text-base">Futbol analiz uzmanınız</p>
+                  <h3 className="text-gray-900 text-xl font-semibold">TaktiQ AI</h3>
+                  <p className="text-gray-700 text-base">Futbol analiz uzmanınız</p>
                 </div>
               </div>
             </div>
 
             {/* Chat Messages */}
-            <div className={`p-8 space-y-6 overflow-y-auto custom-scrollbar transition-all duration-500 ${
-              isExpanded ? 'max-h-[80vh]' : 'max-h-96'
-            }`}>
+            <div className={`p-8 space-y-6 overflow-y-auto custom-scrollbar transition-all duration-500 bg-white/80 rounded-2xl text-gray-900`}>
               {messages.map((message, index) => (
                 <motion.div
                   key={index}
@@ -214,25 +249,25 @@ export default function TaktiQHomePage() {
               <p className="text-sm text-gray-600 mb-3">Örnek sorular:</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <button 
-                  className="text-left p-3 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition-colors"
+                  className="text-left p-3 bg-gray-200 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition-colors text-emerald-700"
                   onClick={() => handleExampleQuestionClick("Messi'nin bu sezondaki performansı nasıl?")}
                 >
                   <p className="text-sm text-emerald-700">"Messi'nin bu sezondaki performansı nasıl?"</p>
                 </button>
                 <button 
-                  className="text-left p-3 bg-blue-50 hover:bg-blue-100 rounded-lg border border-blue-200 transition-colors"
+                  className="text-left p-3 bg-gray-200 hover:bg-blue-100 rounded-lg border border-blue-200 transition-colors text-blue-700"
                   onClick={() => handleExampleQuestionClick("Manchester City'nin güçlü yanları neler?")}
                 >
                   <p className="text-sm text-blue-700">"Manchester City'nin güçlü yanları neler?"</p>
                 </button>
                 <button 
-                  className="text-left p-3 bg-teal-50 hover:bg-teal-100 rounded-lg border border-teal-200 transition-colors"
+                  className="text-left p-3 bg-gray-200 hover:bg-teal-100 rounded-lg border border-teal-200 transition-colors text-teal-700"
                   onClick={() => handleExampleQuestionClick("En iyi genç futbolcular kimler?")}
                 >
                   <p className="text-sm text-teal-700">"En iyi genç futbolcular kimler?"</p>
                 </button>
                 <button 
-                  className="text-left p-3 bg-cyan-50 hover:bg-cyan-100 rounded-lg border border-cyan-200 transition-colors"
+                  className="text-left p-3 bg-gray-200 hover:bg-cyan-100 rounded-lg border border-cyan-200 transition-colors text-cyan-700"
                   onClick={() => handleExampleQuestionClick("Premier League'de en çok gol atan takım?")}
                 >
                   <p className="text-sm text-cyan-700">"Premier League'de en çok gol atan takım?"</p>
@@ -246,13 +281,13 @@ export default function TaktiQHomePage() {
                 <input
                   type="text"
                   placeholder="Futbol hakkında bir şey sorun..."
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent bg-white/80 text-gray-900 placeholder:text-gray-500"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                 />
                 <Button 
                   type="submit"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white px-6"
+                  className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 shadow-lg border-0"
                   disabled={loading || !input.trim()}
                 >
                   Gönder
@@ -267,8 +302,8 @@ export default function TaktiQHomePage() {
       <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-emerald-50/50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Neler Yapabilirsiniz?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Neler Yapabilirsiniz?</h2>
+            <p className="text-xl text-gray-900 max-w-2xl mx-auto">
               TaktiQ ile futbol analizlerinizi bir üst seviyeye taşıyın
             </p>
           </div>
@@ -281,8 +316,8 @@ export default function TaktiQHomePage() {
                   <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center mb-4">
                     <Users className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle className="text-gray-900">Takım Kıyaslama</CardTitle>
-                  <CardDescription className="text-gray-600">
+                  <CardTitle className="text-black">Takım Kıyaslama</CardTitle>
+                  <CardDescription className="text-gray-700">
                     İki takımı detaylı olarak karşılaştırın ve güçlü-zayıf yönlerini keşfedin
                   </CardDescription>
                 </CardHeader>
@@ -312,8 +347,8 @@ export default function TaktiQHomePage() {
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
                     <Brain className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle className="text-gray-900">AI Asistan</CardTitle>
-                  <CardDescription className="text-gray-600">
+                  <CardTitle className="text-black">AI Asistan</CardTitle>
+                  <CardDescription className="text-gray-700">
                     Futbol hakkında sorularınızı sorun, detaylı analizler alın
                   </CardDescription>
                 </CardHeader>
@@ -321,9 +356,9 @@ export default function TaktiQHomePage() {
                   <div className="bg-white/80 rounded-lg p-3 border border-blue-200">
                     <div className="flex items-start space-x-2">
                       <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-white text-xs font-bold">AI</span>
+                        <span className="text-black text-xs font-bold">AI</span>
                       </div>
-                      <p className="text-sm text-gray-700 italic">"Messi'nin bu sezondaki performansı nasıl?"</p>
+                      <p className="text-sm text-gray-900 italic">"Messi'nin bu sezondaki performansı nasıl?"</p>
                     </div>
                   </div>
                 </CardContent>
@@ -337,24 +372,24 @@ export default function TaktiQHomePage() {
                   <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center mb-4">
                     <BarChart3 className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle className="text-gray-900">Detaylı İstatistikler</CardTitle>
-                  <CardDescription className="text-gray-600">
+                  <CardTitle className="text-black">Detaylı İstatistikler</CardTitle>
+                  <CardDescription className="text-gray-700">
                     Oyuncu ve takım performanslarını rakamlarla görün
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Gol/Maç</span>
-                      <span className="text-sm font-semibold text-teal-600">2.3</span>
+                      <span className="text-sm text-gray-900">Gol/Maç</span>
+                      <span className="text-sm font-semibold text-teal-700">2.3</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Pas Başarısı</span>
-                      <span className="text-sm font-semibold text-teal-600">87%</span>
+                      <span className="text-sm text-gray-900">Pas Başarısı</span>
+                      <span className="text-sm font-semibold text-teal-700">87%</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sm text-gray-600">Şut İsabeti</span>
-                      <span className="text-sm font-semibold text-teal-600">65%</span>
+                      <span className="text-sm text-gray-900">Şut İsabeti</span>
+                      <span className="text-sm font-semibold text-teal-700">65%</span>
                     </div>
                   </div>
                 </CardContent>
@@ -368,8 +403,8 @@ export default function TaktiQHomePage() {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Takım Kıyaslama</h2>
-            <p className="text-xl text-gray-600">İki takımı seçin ve detaylı analiz alın</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Takım Kıyaslama</h2>
+            <p className="text-xl text-gray-200">İki takımı seçin ve detaylı analiz alın</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -380,8 +415,8 @@ export default function TaktiQHomePage() {
                   <div className="w-20 h-20 bg-red-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Shield className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Manchester United</h3>
-                  <p className="text-gray-600 mb-4">Premier League</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Manchester United</h3>
+                  <p className="text-gray-300 mb-4">Premier League</p>
                   <div className="flex justify-center space-x-1 mb-4">
                     {[1, 2, 3, 4].map((star) => (
                       <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -409,8 +444,8 @@ export default function TaktiQHomePage() {
                   <div className="w-20 h-20 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Shield className="h-10 w-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Chelsea FC</h3>
-                  <p className="text-gray-600 mb-4">Premier League</p>
+                  <h3 className="text-xl font-bold text-white mb-2">Chelsea FC</h3>
+                  <p className="text-gray-300 mb-4">Premier League</p>
                   <div className="flex justify-center space-x-1 mb-4">
                     {[1, 2, 3, 4].map((star) => (
                       <Star key={star} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -428,7 +463,7 @@ export default function TaktiQHomePage() {
       <section className="py-20 px-4 bg-gradient-to-r from-emerald-500 to-blue-600">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Futbol Analizinde Devrim Yaratın!</h2>
-          <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed">
             TaktiQ ile oyuncu performanslarını, takım stratejilerini ve maç sonuçlarını derinlemesine inceleyin. Şimdi
             başlayın ve futbol dünyasına farklı bir bakış açısı kazanın.
           </p>
@@ -449,7 +484,7 @@ export default function TaktiQHomePage() {
                 <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
                   <BarChart3 className="h-5 w-5 text-white" />
                 </div>
-                <span className="font-bold text-xl">TaktiQ</span>
+                <span className="font-bold text-xl text-white">TaktiQ</span>
               </div>
             </Link>
 
