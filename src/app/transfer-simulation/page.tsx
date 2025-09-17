@@ -72,30 +72,33 @@ export default function TransferSimulationPage() {
         )}
       </button>
 
-      {/* Left sliding content area */}
+      {/* Left content area */}
       <div className="relative z-10">
         <div className="container mx-auto px-4">
-          <div className={`max-w-2xl py-16 md:py-24 transition-transform duration-700 ease-out ${
-            isTextSlid ? 'translate-x-8' : 'translate-x-0'
-          }`}>
-            <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-6">
-              <Construction className="w-4 h-4 text-white" />
-              <span className="text-white/80">Yapım Aşamasında</span>
+          <div className="max-w-2xl py-16 md:py-24">
+            {/* Fixed title section - stays centered */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-6">
+                <Construction className="w-4 h-4 text-white" />
+                <span className="text-white/80">Yapım Aşamasında</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow mb-6">
+                Sanal Transfer
+                <br />
+                <span className="text-white/90">Simülasyonu</span>
+              </h1>
+              
+              <p className="text-white/80 text-lg max-w-prose mx-auto">
+                Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
+                Ok butonuna basarak özellikleri hafifçe kaydırabilirsin.
+              </p>
             </div>
-            
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow mb-6">
-              Sanal Transfer
-              <br />
-              <span className="text-white/90">Simülasyonu</span>
-            </h1>
-            
-            <p className="text-white/80 text-lg max-w-prose mb-8">
-              Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
-              Ok butonuna basarak içeriği hafifçe kaydırabilirsin.
-            </p>
 
-            {/* Feature cards */}
-            <div className="grid gap-4 max-w-lg">
+            {/* Sliding feature cards */}
+            <div className={`grid gap-4 max-w-lg mx-auto transition-transform duration-700 ease-out ${
+              isTextSlid ? 'translate-x-8' : 'translate-x-0'
+            }`}>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
@@ -127,7 +130,8 @@ export default function TransferSimulationPage() {
               </div>
             </div>
 
-            <div className="mt-8">
+            {/* Fixed button section */}
+            <div className="text-center mt-8">
               <Link href="/">
                 <Button className="bg-white/20 hover:bg-white/30 text-white border border-white/20 backdrop-blur-sm">
                   <ArrowLeft className="w-4 h-4 mr-2" />
