@@ -83,7 +83,7 @@ export default function TransferSimulationPage() {
 
             {/* Feature cards - left aligned with equal spacing */}
             <div className="flex flex-col justify-center min-h-[60vh] gap-6 max-w-md">
-              <div className="bg-gradient-to-r from-green-500 to-blue-600 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
                 <div className="flex items-center gap-4 mb-3">
                   <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                     <DollarSign className="w-6 h-6 text-white" />
@@ -93,7 +93,7 @@ export default function TransferSimulationPage() {
                 <p className="text-white/90 text-sm">Oyuncuların gerçekçi transfer değerlerini hesaplayın</p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-500 to-blue-600 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
                 <div className="flex items-center gap-4 mb-3">
                   <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                     <Building className="w-6 h-6 text-white" />
@@ -103,7 +103,7 @@ export default function TransferSimulationPage() {
                 <p className="text-white/90 text-sm">Oyuncuların takıma uyumunu simüle edin</p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-500 to-blue-600 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
                 <div className="flex items-center gap-4 mb-3">
                   <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
                     <User className="w-6 h-6 text-white" />
