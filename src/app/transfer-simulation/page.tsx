@@ -72,28 +72,31 @@ export default function TransferSimulationPage() {
         )}
       </button>
 
+      {/* Right positioned title - centered vertically */}
+      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 max-w-sm">
+        <div className="text-right">
+          <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-6 ml-auto">
+            <Construction className="w-4 h-4 text-white" />
+            <span className="text-white/80">Yapım Aşamasında</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow mb-6 text-right">
+            Sanal Transfer
+            <br />
+            <span className="text-white/90">Simülasyonu</span>
+          </h1>
+          
+          <p className="text-white/80 text-lg max-w-xs ml-auto text-right">
+            Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
+            Ok butonuna basarak özellikleri hafifçe kaydırabilirsin.
+          </p>
+        </div>
+      </div>
+
       {/* Left content area */}
       <div className="relative z-10">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl py-16 md:py-24">
-            {/* Fixed title section - moved further right */}
-            <div className="text-right mb-12 ml-auto max-w-md mr-0">
-              <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-6 ml-auto">
-                <Construction className="w-4 h-4 text-white" />
-                <span className="text-white/80">Yapım Aşamasında</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow mb-6 text-right">
-                Sanal Transfer
-                <br />
-                <span className="text-white/90">Simülasyonu</span>
-              </h1>
-              
-              <p className="text-white/80 text-lg max-w-sm ml-auto text-right">
-                Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
-                Ok butonuna basarak özellikleri hafifçe kaydırabilirsin.
-              </p>
-            </div>
 
             {/* Sliding feature cards */}
             <div className={`grid gap-4 max-w-lg mx-auto transition-transform duration-700 ease-out ${
