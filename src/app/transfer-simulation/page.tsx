@@ -17,7 +17,7 @@ import {
 import Link from 'next/link'
 
 export default function TransferSimulationPage() {
-  const [isPanelOpen, setIsPanelOpen] = useState(true)
+  const [isTextSlid, setIsTextSlid] = useState(false)
 
   return (
     <div className="min-h-screen text-white relative overflow-hidden">
@@ -61,98 +61,80 @@ export default function TransferSimulationPage() {
 
       {/* Slide toggle button */}
       <button
-        aria-label="Paneli aç/kapat"
-        onClick={() => setIsPanelOpen((p) => !p)}
-        className="group absolute top-1/2 right-0 z-30 -translate-y-1/2 translate-x-full md:translate-x-0 md:right-4 bg-black/50 hover:bg-black/60 border border-white/20 backdrop-blur text-white rounded-l-full px-2 py-3 md:py-4 transition"
+        aria-label="Yazıları kaydır"
+        onClick={() => setIsTextSlid((p) => !p)}
+        className="group absolute top-1/2 right-4 z-30 -translate-y-1/2 bg-black/50 hover:bg-black/60 border border-white/20 backdrop-blur text-white rounded-full px-3 py-4 transition"
       >
-        {isPanelOpen ? (
-          <ChevronRight className="w-5 h-5" />
-        ) : (
+        {isTextSlid ? (
           <ChevronLeft className="w-5 h-5" />
+        ) : (
+          <ChevronRight className="w-5 h-5" />
         )}
       </button>
 
-      {/* Right slide-in panel */}
-      <aside
-        className={
-          "absolute right-0 top-16 md:top-20 z-20 h-[calc(100vh-80px)] w-full sm:w-[480px] max-w-full " +
-          "bg-black/60 backdrop-blur-xl border-l border-white/10 shadow-2xl transition-transform duration-500 " +
-          (isPanelOpen ? "translate-x-0" : "translate-x-full")
-        }
-      >
-        <div className="h-full overflow-y-auto p-6 space-y-6">
-          <div>
-            <h1 className="text-3xl font-bold">Sanal Transfer</h1>
-            <p className="text-white/80 mt-2">
-              Arka planda video oynarken, buradan özellikleri yönetebilirsin. Ok tuşuyla paneli açıp kapat.
-            </p>
-          </div>
-
-          <div className="grid gap-4">
-            <Card className="bg-white/10 border-white/10">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mb-3">
-                  <DollarSign className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-white">Transfer Değeri Analizi</CardTitle>
-                <CardDescription className="text-white/80">
-                  Oyuncuların gerçekçi transfer değerlerini hesaplayın
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="bg-white/10 border-white/10">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-3">
-                  <Building className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-white">Takım Uyumluluğu</CardTitle>
-                <CardDescription className="text-white/80">
-                  Oyuncuların takıma uyumunu simüle edin
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="bg-white/10 border-white/10">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center mb-3">
-                  <User className="w-6 h-6 text-white" />
-                </div>
-                <CardTitle className="text-white">Bireysel Profil</CardTitle>
-                <CardDescription className="text-white/80">
-                  Oyuncu özellikleri ve potansiyel gelişimi
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          </div>
-
-          <div className="flex gap-3 pt-2">
-            <Link href="/">
-              <Button className="bg-white/20 hover:bg-white/30 text-white border border-white/20">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Ana Sayfaya Dön
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </aside>
-
-      {/* Left info text (optional)*/}
-      <div className="relative z-10 pointer-events-none">
+      {/* Left sliding content area */}
+      <div className="relative z-10">
         <div className="container mx-auto px-4">
-          <div className="max-w-xl py-16 md:py-24">
-            <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-4">
+          <div className={`max-w-2xl py-16 md:py-24 transition-transform duration-700 ease-out ${
+            isTextSlid ? 'translate-x-8' : 'translate-x-0'
+          }`}>
+            <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-6">
               <Construction className="w-4 h-4 text-white" />
               <span className="text-white/80">Yapım Aşamasında</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow">
+            
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow mb-6">
               Sanal Transfer
               <br />
               <span className="text-white/90">Simülasyonu</span>
-            </h2>
-            <p className="text-white/80 mt-4 text-lg max-w-prose">
-              Ok butonuna basarak sağdaki paneli açabilir, özellikleri keşfedebilirsin. Arka planda video oynatılır.
+            </h1>
+            
+            <p className="text-white/80 text-lg max-w-prose mb-8">
+              Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
+              Ok butonuna basarak içeriği hafifçe kaydırabilirsin.
             </p>
+
+            {/* Feature cards */}
+            <div className="grid gap-4 max-w-lg">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                    <DollarSign className="w-4 h-4 text-white" />
+                  </div>
+                  <h3 className="text-white font-semibold">Transfer Değeri Analizi</h3>
+                </div>
+                <p className="text-white/70 text-sm">Oyuncuların gerçekçi transfer değerlerini hesaplayın</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <Building className="w-4 h-4 text-white" />
+                  </div>
+                  <h3 className="text-white font-semibold">Takım Uyumluluğu</h3>
+                </div>
+                <p className="text-white/70 text-sm">Oyuncuların takıma uyumunu simüle edin</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
+                    <User className="w-4 h-4 text-white" />
+                  </div>
+                  <h3 className="text-white font-semibold">3D Oyuncu Analizi</h3>
+                </div>
+                <p className="text-white/70 text-sm">Futbolcuları 3D ortamda detaylı olarak inceleyin</p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <Link href="/">
+                <Button className="bg-white/20 hover:bg-white/30 text-white border border-white/20 backdrop-blur-sm">
+                  <ArrowLeft className="w-4 h-4 mr-2" />
+                  Ana Sayfaya Dön
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
