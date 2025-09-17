@@ -25,27 +25,18 @@ import Link from 'next/link'
 
 export default function TransferSimulationPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-green-900 text-white relative overflow-hidden">
-      {/* 3D Football Pitch Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Saha çizgileri ve blur efektler */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-gray-900 to-green-900 opacity-80"></div>
-        <div className="absolute top-24 left-1/4 w-1/2 h-32 bg-green-600/30 rounded-full blur-2xl opacity-40 animate-pulse"></div>
-        <div className="absolute bottom-10 right-1/4 w-1/3 h-24 bg-green-400/30 rounded-full blur-2xl opacity-30 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-0 w-full h-1 bg-green-700/40 rounded-full blur-sm opacity-60"></div>
-        <div className="absolute top-1/3 left-0 w-full h-1 bg-green-800/30 rounded-full blur-sm opacity-40"></div>
-        <div className="absolute bottom-1/3 left-0 w-full h-1 bg-green-800/30 rounded-full blur-sm opacity-40"></div>
-        {/* Mavi blur efekt */}
-        <div className="absolute top-1/4 right-1/5 w-1/3 h-32 bg-blue-600/30 rounded-full blur-2xl opacity-30 animate-pulse delay-500"></div>
-        <div className="absolute bottom-1/4 left-1/5 w-1/4 h-20 bg-blue-400/30 rounded-full blur-2xl opacity-20 animate-pulse delay-700"></div>
-        {/* Blurred footballer image */}
-        <img
-          src="https://labosport.com/wp-content/uploads/2023/03/Soccer-1.png"
-          alt="Futbolcu topa vuruyor"
-          className="absolute bottom-0 right-0 w-[500px] max-w-[60vw] opacity-40 blur-2xl select-none pointer-events-none"
-          style={{ zIndex: 1 }}
-        />
-      </div>
+    <div className="min-h-screen text-white relative overflow-hidden">
+      {/* Background Video (old style) */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/vd1.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Header */}
       <div className="border-b border-green-900 bg-black/80 backdrop-blur-sm sticky top-0 z-50">

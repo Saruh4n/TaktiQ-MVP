@@ -72,8 +72,8 @@ export default function BreakingNewsPage() {
                 <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-600 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <AlertTriangle className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle>Anlık Haberler</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-black">Anlık Haberler</CardTitle>
+                <CardDescription className="text-black">
                   Futbol dünyasından en son gelişmeleri takip edin
                 </CardDescription>
               </CardHeader>
@@ -84,8 +84,8 @@ export default function BreakingNewsPage() {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Newspaper className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle>Transfer Haberleri</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-black">Transfer Haberleri</CardTitle>
+                <CardDescription className="text-black">
                   Transfer dönemlerinde en güncel haberleri alın
                 </CardDescription>
               </CardHeader>

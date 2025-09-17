@@ -155,7 +155,7 @@ function TeamAnalysisContent() {
                     placeholder="Takım adını girin (örn: Manchester City)"
                     value={team1}
                     onChange={(e) => handleTeam1Change(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 text-black placeholder:text-black"
                   />
                   {team1 && (
                     <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
@@ -173,7 +173,7 @@ function TeamAnalysisContent() {
                       placeholder="Takım adını girin (örn: Arsenal)"
                       value={team2}
                       onChange={(e) => handleTeam2Change(e.target.value)}
-                      className="pl-10"
+                      className="pl-10 text-black placeholder:text-black"
                     />
                     {team2 && (
                       <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />

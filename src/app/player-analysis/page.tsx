@@ -147,7 +147,7 @@ export default function PlayerAnalysisPage() {
                     placeholder="Oyuncu adını girin (örn: Erling Haaland)"
                     value={player1}
                     onChange={(e) => handlePlayer1Change(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 text-black placeholder:text-black"
                   />
                   {player1 && (
                     <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
@@ -165,7 +165,7 @@ export default function PlayerAnalysisPage() {
                       placeholder="Oyuncu adını girin (örn: Kylian Mbappé)"
                       value={player2}
                       onChange={(e) => handlePlayer2Change(e.target.value)}
-                      className="pl-10"
+                      className="pl-10 text-black placeholder:text-black"
                     />
                     {player2 && (
                       <Check className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />

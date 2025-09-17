@@ -70,8 +70,8 @@ export default function LiveMatchesPage() {
                 <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-600 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Play className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle>Canlı Maç Takibi</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-black">Canlı Maç Takibi</CardTitle>
+                <CardDescription className="text-black">
                   Maçları gerçek zamanlı olarak takip edin
                 </CardDescription>
               </CardHeader>
@@ -82,8 +82,8 @@ export default function LiveMatchesPage() {
                 <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Radio className="w-6 h-6 text-white" />
                 </div>
-                <CardTitle>Canlı İstatistikler</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-black">Canlı İstatistikler</CardTitle>
+                <CardDescription className="text-black">
                   Maç sırasında anlık istatistikleri görün
                 </CardDescription>
               </CardHeader>
