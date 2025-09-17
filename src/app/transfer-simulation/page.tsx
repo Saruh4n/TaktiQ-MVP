@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -11,13 +10,10 @@ import {
   DollarSign,
   Building,
   User,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react"
 import Link from 'next/link'
 
 export default function TransferSimulationPage() {
-  const [isTextSlid, setIsTextSlid] = useState(false)
 
   return (
     <div className="min-h-screen text-white relative overflow-hidden">
@@ -59,18 +55,6 @@ export default function TransferSimulationPage() {
         </div>
       </div>
 
-      {/* Slide toggle button */}
-      <button
-        aria-label="Yazıları kaydır"
-        onClick={() => setIsTextSlid((p) => !p)}
-        className="group absolute top-1/2 right-4 z-30 -translate-y-1/2 bg-black/50 hover:bg-black/60 border border-white/20 backdrop-blur text-white rounded-full px-3 py-4 transition"
-      >
-        {isTextSlid ? (
-          <ChevronLeft className="w-5 h-5" />
-        ) : (
-          <ChevronRight className="w-5 h-5" />
-        )}
-      </button>
 
       {/* Right positioned title - centered vertically */}
       <div className="absolute right-20 top-1/2 transform -translate-y-1/2 z-20 max-w-sm">
@@ -88,7 +72,6 @@ export default function TransferSimulationPage() {
           
           <p className="text-white/80 text-lg max-w-xs mx-auto text-center">
             Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
-            Ok butonuna basarak özellikleri hafifçe kaydırabilirsin.
           </p>
         </div>
       </div>
@@ -98,10 +81,8 @@ export default function TransferSimulationPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl py-16 md:py-24">
 
-            {/* Sliding feature cards */}
-            <div className={`grid gap-4 max-w-lg mx-auto transition-transform duration-700 ease-out ${
-              isTextSlid ? 'translate-x-8' : 'translate-x-0'
-            }`}>
+            {/* Feature cards */}
+            <div className="grid gap-4 max-w-lg mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
