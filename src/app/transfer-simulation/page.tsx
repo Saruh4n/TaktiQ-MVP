@@ -81,36 +81,36 @@ export default function TransferSimulationPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl py-16 md:py-24">
 
-            {/* Feature cards - vertically centered */}
-            <div className="flex flex-col items-center justify-center min-h-[60vh] gap-8 max-w-lg mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
-                    <DollarSign className="w-4 h-4 text-white" />
+            {/* Feature cards - left aligned with equal spacing */}
+            <div className="flex flex-col justify-center min-h-[60vh] gap-6 max-w-md">
+              <div className="bg-gradient-to-r from-green-500 to-blue-600 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <DollarSign className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-white font-semibold">Transfer Değeri Analizi</h3>
+                  <h3 className="text-white font-bold text-lg">Transfer Değeri Analizi</h3>
                 </div>
-                <p className="text-white/70 text-sm">Oyuncuların gerçekçi transfer değerlerini hesaplayın</p>
+                <p className="text-white/90 text-sm">Oyuncuların gerçekçi transfer değerlerini hesaplayın</p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <Building className="w-4 h-4 text-white" />
+              <div className="bg-gradient-to-r from-green-500 to-blue-600 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <Building className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-white font-semibold">Takım Uyumluluğu</h3>
+                  <h3 className="text-white font-bold text-lg">Takım Uyumluluğu</h3>
                 </div>
-                <p className="text-white/70 text-sm">Oyuncuların takıma uyumunu simüle edin</p>
+                <p className="text-white/90 text-sm">Oyuncuların takıma uyumunu simüle edin</p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-lg flex items-center justify-center">
-                    <User className="w-4 h-4 text-white" />
+              <div className="bg-gradient-to-r from-green-500 to-blue-600 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <User className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-white font-semibold">3D Oyuncu Analizi</h3>
+                  <h3 className="text-white font-bold text-lg">3D Oyuncu Analizi</h3>
                 </div>
-                <p className="text-white/70 text-sm">Futbolcuları 3D ortamda detaylı olarak inceleyin</p>
+                <p className="text-white/90 text-sm">Futbolcuları 3D ortamda detaylı olarak inceleyin</p>
               </div>
             </div>
 
