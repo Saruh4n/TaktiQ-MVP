@@ -82,8 +82,8 @@ export default function TransferSimulationPage() {
           <div className="max-w-2xl py-16 md:py-24">
 
             {/* Feature cards - smaller with larger text */}
-            <div className="flex flex-col justify-center min-h-[60vh] gap-8 max-w-lg">
-              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+            <div className="flex flex-col justify-center items-start min-h-[70vh] gap-16 max-w-xl">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl w-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
                     <DollarSign className="w-8 h-8 text-white" />
@@ -93,7 +93,7 @@ export default function TransferSimulationPage() {
                 <p className="text-white/90 text-xl">Oyuncuların gerçekçi transfer değerlerini hesaplayın</p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl w-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
                     <Building className="w-8 h-8 text-white" />
@@ -103,7 +103,7 @@ export default function TransferSimulationPage() {
                 <p className="text-white/90 text-xl">Oyuncuların takıma uyumunu simüle edin</p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl w-full">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
                     <User className="w-8 h-8 text-white" />
