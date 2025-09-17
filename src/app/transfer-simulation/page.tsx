@@ -73,20 +73,20 @@ export default function TransferSimulationPage() {
       </button>
 
       {/* Right positioned title - centered vertically */}
-      <div className="absolute right-8 top-1/2 transform -translate-y-1/2 z-20 max-w-sm">
-        <div className="text-right">
-          <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-6 ml-auto">
+      <div className="absolute right-20 top-1/2 transform -translate-y-1/2 z-20 max-w-sm">
+        <div className="text-center">
+          <div className="inline-flex items-center gap-3 bg-black/40 border border-white/20 rounded-full px-4 py-2 mb-6">
             <Construction className="w-4 h-4 text-white" />
             <span className="text-white/80">Yapım Aşamasında</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow mb-6 text-right">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow mb-6 text-center">
             Sanal Transfer
             <br />
             <span className="text-white/90">Simülasyonu</span>
           </h1>
           
-          <p className="text-white/80 text-lg max-w-xs ml-auto text-right">
+          <p className="text-white/80 text-lg max-w-xs mx-auto text-center">
             Futbolcuları 3D ortamda analiz edin, transfer değerlerini hesaplayın ve takım uyumluluğunu simüle edin.
             Ok butonuna basarak özellikleri hafifçe kaydırabilirsin.
           </p>
