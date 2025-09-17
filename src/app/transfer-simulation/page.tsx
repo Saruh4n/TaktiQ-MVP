@@ -81,8 +81,8 @@ export default function TransferSimulationPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl py-16 md:py-24">
 
-            {/* Feature cards */}
-            <div className="grid gap-4 max-w-lg mx-auto">
+            {/* Feature cards - vertically centered */}
+            <div className="flex flex-col items-center justify-center min-h-[60vh] gap-8 max-w-lg mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="flex items-center gap-3 mb-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
