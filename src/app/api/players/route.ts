@@ -4,8 +4,9 @@ import Player from '@/models/Player';
 
 export async function GET() {
   try {
-    // Skip database connection during build time
-    if (process.env.NODE_ENV === 'production' && !process.env.MONGODB_URI) {
+    // Skip database connection during build time or when no MongoDB URI
+    if (!process.env.MONGODB_URI || process.env.NODE_ENV === 'production') {
+      console.log('Skipping MongoDB connection during build');
       return NextResponse.json([]);
     }
     
@@ -14,9 +15,6 @@ export async function GET() {
     return NextResponse.json(players);
   } catch (error) {
     console.error('Error fetching players:', error);
-    return NextResponse.json(
-      { error: 'Internal Server Error' },
-      { status: 500 }
-    );
+    return NextResponse.json([]);
   }
 } 
