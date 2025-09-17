@@ -81,36 +81,36 @@ export default function TransferSimulationPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl py-16 md:py-24">
 
-            {/* Feature cards - larger with more spacing */}
-            <div className="flex flex-col justify-center min-h-[60vh] gap-12 max-w-2xl">
-              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-10 border border-white/20 shadow-xl">
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center">
-                    <DollarSign className="w-10 h-10 text-white" />
+            {/* Feature cards - smaller with larger text */}
+            <div className="flex flex-col justify-center min-h-[60vh] gap-8 max-w-lg">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <DollarSign className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-white font-bold text-2xl">Transfer Değeri Analizi</h3>
+                  <h3 className="text-white font-bold text-3xl">Transfer Değeri Analizi</h3>
                 </div>
-                <p className="text-white/90 text-lg">Oyuncuların gerçekçi transfer değerlerini hesaplayın</p>
+                <p className="text-white/90 text-xl">Oyuncuların gerçekçi transfer değerlerini hesaplayın</p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-10 border border-white/20 shadow-xl">
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center">
-                    <Building className="w-10 h-10 text-white" />
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <Building className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-white font-bold text-2xl">Takım Uyumluluğu</h3>
+                  <h3 className="text-white font-bold text-3xl">Takım Uyumluluğu</h3>
                 </div>
-                <p className="text-white/90 text-lg">Oyuncuların takıma uyumunu simüle edin</p>
+                <p className="text-white/90 text-xl">Oyuncuların takıma uyumunu simüle edin</p>
               </div>
 
-              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-10 border border-white/20 shadow-xl">
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center">
-                    <User className="w-10 h-10 text-white" />
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-600/30 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-xl">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                    <User className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-white font-bold text-2xl">3D Oyuncu Analizi</h3>
+                  <h3 className="text-white font-bold text-3xl">3D Oyuncu Analizi</h3>
                 </div>
-                <p className="text-white/90 text-lg">Futbolcuları 3D ortamda detaylı olarak inceleyin</p>
+                <p className="text-white/90 text-xl">Futbolcuları 3D ortamda detaylı olarak inceleyin</p>
               </div>
             </div>
 
